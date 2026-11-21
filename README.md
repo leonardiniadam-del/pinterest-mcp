@@ -13,7 +13,9 @@ Built 2026-11-20. Registered in Claude Code as `pinterest` for all projects.
 2. Create an app (My apps, then Connect app). Any name, such as "My research".
 3. Request **Trial access** for it. Approval usually takes one or two days, sometimes longer.
 4. When it is approved, open the app's page and generate an access token with these permissions:
-   `boards:read`, `boards:write`, `pins:read`, `pins:write`, `user_accounts:read`.
+   `boards:read`, `boards:write`, `pins:read`, `pins:write`, `user_accounts:read`,
+   and for secret boards and pins: `boards:read_secret`, `boards:write_secret`,
+   `pins:read_secret`, `pins:write_secret`.
 5. Open `.env` in this folder in Notepad, replace `paste-your-token-here` with the token,
    save, and restart Claude.
 6. Ask Claude: "check the Pinterest connection". It runs `whoami` and shows your username.
