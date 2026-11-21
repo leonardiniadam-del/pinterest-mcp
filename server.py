@@ -55,6 +55,8 @@ def _call(method, path, params=None, body=None):
         hint = {401: " (the token is wrong or has expired: make a new one on the app page)",
                 403: " (the token is missing a permission, or this needs a higher access tier)",
                 429: " (too many requests today: Trial access allows 1,000 a day)"}.get(r.status_code, "")
+        if "consumer type" in msg.lower():
+            hint = " (Pinterest has not approved the app's Trial access yet; check the app page)"
         raise PinterestError(f"Pinterest said {r.status_code}: {msg}{hint}")
     return r.json() if r.content else {}
 
